@@ -106,13 +106,16 @@
           // 트리거는 자바스크립트
           // 요즘에는 jquery함수로 애니메이션을 안 씀. css로 애니메이션을 해결
          $('#login').on('click', function(){
-             $('.black-background').css('transform','translateY(-0px)');
+             
+             $('.black-background').addClass('transparency');
+             
+             $('.black-background').addClass('slide-down');
           }); 
           
           
           // modal-close 
           $('#close').on('click', function(){
-              $('.black-background').fadeOut();
+              $('.black-background').addClass('slide-up');
           });
           
           
