@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+      <p id="title">Alert 박스</p>  
+    <button id="close">닫기</button>
+    </div>
+    
+    <button onclick="알림창열기1('아이디를 입력하세요')">버튼1</button>
+    <button onclick="알림창열기1('비밀번호를 입력하세요')">버튼2</button>
+
+
+    
+    <script>
+
+        //이벤트 리스너를 사용하면 html이 onclick 안 써도 깔끔해짐.
+        document.getElementById('close').addEventListener('click',function(){
+            document.getElementById('alert').style.display = 'none';
+
+        })
+
+
+        // 그전에는 알림창 닫기 열기 2개 함수로 처 만들어놓음, 안 좋은 구조.
+        //  
+        function 알림창열기1(구멍1){
+
+            // div태그 알림창이 보여지거나 사라지거나 
+            document.getElementById('alert').style.display = 'block';
+            
+            // p태그의 아이디를 가져와서 바꿈
+            document.getElementById('title').innerHTML = 구멍1;
+
+        }
+
+
+        function 알림창열기(구멍1){
+            document.getElementById('alert').style.display = 구멍1;
+
+        }
+
+        function plus(구멍){
+            2 + 구멍;
+        }
+
+        plus(1);
+        plus(2);
+        plus(3);
+
+        // 알림창열기()
+
+    </script>
+</body>
+</html>
