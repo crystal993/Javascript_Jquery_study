@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function 삼육구게임(num){
+            if(num % 9 == 0){
+              console.log('박수x2');
+            } else if (num % 3 == 0) {
+              console.log('박수');
+            } else {
+              console.log('통과');         
+            }
+        }
+        
+        삼육구게임(3);
+        삼육구게임(11);
+        삼육구게임(18);
+        
+        function 삼육구게임2(num){
+            let last_n = num % 10;
+            if(last_n == 3 or last_n == 6 or last_n == 9){
+              console.log('박수');
+            } else {
+              console.log('통과');         
+            }
+        }
+        삼육구게임2(16);
+        삼육구게임2(11);
+        
+    </script>
+    
+</body>
+</html>
