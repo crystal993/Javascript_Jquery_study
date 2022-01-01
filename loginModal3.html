@@ -22,17 +22,9 @@
 
     <!-- slide menu  -->
       
-   <h3 id="hi">안녕</h3>
-   
-   <script>
-      
-       $('#hi').click(function(){
-           //animate({css속성}, 동작속도) : css속성을 서서히 변경할 수 있다.
-           $('#hi').animate({ marginLeft : '100px' }, 5000);
-       });
-       
-   </script>
-   
+   <div class="left-menu" id="slide-menu">
+       <p>Menu Title</p>
+   </div>
    
     <!-- login modal -->
     <div  class="black-background">
@@ -80,7 +72,21 @@
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <p class="lead">
+          
+          <!-- login btn  -->
           <a id="login" class="btn btn-primary btn-lg" href="#" role="button">Log in</a>
+          
+          <!-- show Slide menu  -->
+          <a id="show-menu" class="btn btn-danger btn-lg" href="#" role="button">Show Menu</a>
+          
+             <script>
+      
+               $('#show-menu').click(function(){
+                   //animate({css속성}, 동작속도) : css속성을 서서히 변경할 수 있다.
+                   $('#slide-menu').animate({ marginLeft : '0px' }, 800);
+               });
+
+           </script>
         </p>
       </div>
 
