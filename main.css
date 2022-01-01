@@ -27,7 +27,13 @@
     display: block; 
     transition: all 1s; 
     /*  transition : 모든 css속성이 스무스하게 움직임.  */
-    margin-top: -1000px;
+    /* margin-top: -1000px; 전문적이지 못함*/
+    /*  transfrom : translate 
+        transform : rotate 
+        transform : scale 
+    => margin-top 대신 쓰기
+    */
+    transform: translateY(-1000px);
 }
 
 .white-background {
