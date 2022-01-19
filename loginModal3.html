@@ -38,7 +38,7 @@
                
                  <input type="email" class="form-control" placeholder="Email" id="email">
                 
-                <p id="email-alert">이메일이 빈칸입니다.</p>
+                <p id="email-alert">올바른 아이디를 입력해주세요.</p>
               
               </div>
               
@@ -46,7 +46,7 @@
                 <input type="password" class="form-control" placeholder="Password"
                 id = "pw"
                 >
-                <p id="pw-alert">패스워드가 빈칸입니다.</p>
+                <p id="pw-alert">올바른 패스워드를 입력해주세요.</p>
               </div>
               
               <button type="submit" class="btn btn-primary">전송</button>
@@ -87,72 +87,90 @@
           
              <script>
       
-               // 1. nav-bar open  
-               $('#show-menu').click(function(){
-                   //animate({css속성}, 동작속도) : css속성을 서서히 변경할 수 있다.
-                   $('#slide-menu').animate({ marginLeft : '0px' }, 800);
-               });
-                 
-              // 2. nav-bar slidedown
-              $('#nav-sub-button').click(function(){
-                  $('.nav-sub').slideToggle();
-              }); 
-            
-               // 3. login modal-open 
-               $('#login').click(function(){
-             
-                 $('.black-background').addClass('slide-down');
+                // 1. nav-bar open  
+                $('#show-menu').click(function(){
+                    //animate({css속성}, 동작속도) : css속성을 서서히 변경할 수 있다.
+                    $('#slide-menu').animate({ marginLeft : '0px' }, 800);
+                });
 
-               });
-                 
+                // 2. nav-bar slidedown
+                $('#nav-sub-button').click(function(){
+                    $('.nav-sub').slideToggle();
+                }); 
+
+                // 3. login modal-open 
+                $('#login').click(function(){
+
+                    $('.black-background').addClass('slide-down');
+
+                });
+
                 // 4. login modal-close 
-                  $('#close').on('click', function(){
-                      $('#loginModal').removeClass('slide-down');
-                  });      
+                $('#close').on('click', function(){
+                    $('#loginModal').removeClass('slide-down');
+                });      
 
-              // 5. login-modal 유효성 검사
-              let emailAlert = $('#email-alert');
-              let pwAlert = $('#pw-alert');     
-              
+                // 5. login-modal 유효성 검사
+                let emailAlert = $('#email-alert');
+                let pwAlert = $('#pw-alert');     
+                let emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.
+
+                let pwRegExp = /^.*(?=.{8,16})(?=.*[0-9])(?=.*[a-zA-Z]).*$/; //8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.
+
+                let phoneRegExp = /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
+                 
+                 console.log(emailRegExp.test($('#email').val()));
+                 
+                 console.log(pwRegExp.test($('#pw').val()));
+
+
               // id & pw 빈칸 검사
               $('form').on('submit', function(e){
-
-                  // 만약에 이메일 input에 입력된 값이 빈칸인 경우, 폼의 전송을 막음
-                  if($('#email').val() == ''){
+                  
+                  let id = $('#email').val();
+                  let pw = $('#pw').val();
+                  
+                  // 1. email 유효성 검사
+                  // 1-1. 이메일 정규식
+                  if(emailRegExp.test(id) == false){
                     //폼의 전송을 막는다.
                     e.preventDefault();
                     //안내문 띄움. 
                     emailAlert.show();
-                  } 
+                
+                      
+                  // 1-2. 빈칸 검사      
+                  } else if (id == '' ){
+                    //폼의 전송을 막는다.
+                    e.preventDefault();
+                    //안내문 띄움. 
+                    emailAlert.show();
+                  }
 
-                  if($('#pw').val() == ''){
+                 // 2. pw 유효성 검사
+                 // 2-1. 이메일 정규식  
+                  if(pwRegExp.test(pw)== false){
+                    //폼의 전송을 막는다.
+                    e.preventDefault();
+                    //안내문 띄움. 
+                    pwAlert.show();
+                
+                   // 2-2. 빈칸 검사       
+                  } else if(pw == ''){
                     //폼의 전송을 막는다.
                     e.preventDefault();
                     //안내문 띄움. 
                     pwAlert.show();
                   }
 
+
               }); 
-                 
-               //정규식
-                /abc/.test('abcdefg')     
+                  
            </script>
            
            
         </p>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
