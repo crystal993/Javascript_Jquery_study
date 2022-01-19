@@ -33,6 +33,7 @@
         transform : scale 
     => margin-top 대신 쓰기
     */
+/*    margin-top: -1000px;*/
     transform: translateY(-1000px);
 }
 
@@ -80,6 +81,7 @@
 }
 
 .slide-down {
+    transition: all 1s; 
     transform: translateY(0px);
 }
 
