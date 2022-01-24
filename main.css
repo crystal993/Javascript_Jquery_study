@@ -92,3 +92,30 @@
 .slide-up {
     transform: translateY(-1000px);
 }
+
+.slide-box {
+    width: 100vw;
+    float: left;
+}
+
+.slide-container {
+    width: 300vw;
+    transition: transform 1s;
+}
+
+.slide-box img {
+    width: 100%;
+    height: 600px;
+}
+
+.slide-next {
+    position: absolute;
+    top: 45%;
+    right: 0;
+}
+
+.slide-pre {
+    position: absolute;
+    top: 45%;
+    left : 0;
+}

@@ -171,7 +171,75 @@
            
         </p>
       </div>
+      
+      <h4 class="my-4 text-center">Showcase</h4>
+      
+      <div style="overflow: hidden; position:relative">
+          <div class="slide-container">
+              <div class="slide-box">
+                  <img src="img/shirt1.jpg">
+              </div>
+               <div class="slide-box">
+                  <img src="img/shirt2.jpg">
+              </div>
+               <div class="slide-box">
+                  <img src="img/shirt3.jpg">
+              </div>
+          </div>
+          <button class="slide-pre">Pre</button>
+          <button class="slide-next">Next</button>
+      </div>
+      <button class="slide-1">1</button>
+      <button class="slide-2">2</button>
+      <button class="slide-3">3</button>
 
+      <script>
+        
+        let currentPic = 1; //현재 사진 
+          
+        // next버튼 
+        $('.slide-next').click(function(){
+
+            if(currentPic < 3){
+               $('.slide-container').css("transform",`translateX(-${currentPic}00vw)`);
+               currentPic += 1;
+            } else {
+                currentPic = 2
+            }
+        });
+          
+        //pre버튼 
+        $('.slide-pre').click(function(){
+            if (currentPic > 1){
+                $('.slide-container').css("transform", `translateX(-${currentPic-2}00vw)`);
+                currentPic -= 1;
+            } else {
+                currentPic = 1
+            }
+        })
+          
+        // 1번 이미지 버튼  
+        $('.slide-1').click(function(){
+            
+            $('.slide-container').css("transform","translateX(0vw)");
+            currentPic = 1; //1번 이미지
+        })  
+          
+        // 2번 이미지 버튼   
+        $('.slide-2').click(function(){
+            
+            $('.slide-container').css("transform","translateX(-100vw)");
+            currentPic = 2; //2번 이미지
+        })
+        
+        // 3번 이미지 버튼   
+        $('.slide-3').click(function(){
+            
+            $('.slide-container').css("transform","translateX(-200vw)");
+            currentPic = 3;
+        })  
+      </script>
+   
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
